@@ -1,33 +1,39 @@
-# Simple clicker app
+# frontend-example-docker
 
-# Installation
+This project is created to help learn docker configurations for frontend projects.
 
-Make sure you have a JavaScript runtime such as node installed.
+# Prerequisites
 
-## If you do not have ruby installed
+Install [node](https://nodejs.org/en/download/). 
 
-Install ruby version 2.6.0 with [rbenv](https://github.com/rbenv/rbenv).
+Example node install instructions for LTS node 10.x:
+```
+curl -sL https://deb.nodesource.com/setup_10.x | bash
+sudo apt install -y nodejs
+```
 
-Install bundler with `gem install bundler`
+Check your install with `node -v && npm -v`
 
-## If you already have ruby and bundler installed
+Install all packages with `npm install`
 
-run `bundle install` to install all dependencies specified in the Gemfile
+# Starting in production mode
 
-## For development version
+Notice, that all the information are not needed in all the exercises.
 
-Run migrations with `rails db:migrate`
+## Exercise 1.10 -> to run the project
 
-Run `rails s` to start the project in development mode
+To build and serve in production mode: `npm start`
+This builds the project to `dist` folder and serves it in port 5000.
 
-## For production version
+You can alternatively build the project with `npm run build` to build the project to `dist` folder and then serve it in any way you want, for example:
 
-Run migrations with `rails db:migrate RAILS_ENV=production`
+To use a npm package called serve to serve the project in port 5000:
+- install: `npm install -g serve`
+- serve: `serve -s -l 5000 dist`
 
-Precompile your assets with `rake assets:precompile`
+Test that the project is running by going to <http://localhost:5000>
 
-Run `rails s -e production` to start the project in production mode
+## Exercise 1.12 -> to connect to backend
 
-(To get error output use `RAILS_LOG_TO_STDOUT=true rails s -e production`)
-
-### The application by default runs in port 3000
+By default the expected path to backend is /api. This is where the application will send requests. 
+To manually configure api path run with `API_URL` environment value set, for example `API_URL=http://localhost:8888 npm start` or `API_URL=<url> npm build`
