@@ -6,4 +6,3 @@ workflows:
     jobs:
       - docker/publish:
           image: wood101/dockerexercise3.2
-          tag: 'latest'
